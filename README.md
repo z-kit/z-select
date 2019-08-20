@@ -57,10 +57,10 @@ const React = require('react');
 const render = require('react-dom').render;
 
 // Passing the render function when importing
-const ZInput = require('z-select')(React.createElement);
+const ZSelect = require('z-select')(React.createElement);
 
 // Render it on page, using JSX here :)
-render(<ZInput />, document.body);
+render(<ZSelect />, document.body);
 ```
 
 ## <a name="howto"></a> How to use
@@ -71,28 +71,26 @@ Just add the HTML structure and CSS classes to reproduce the UI component.
 
 ### Class hierarchy
 
-|              Recommended HTML tags              | Parent |         Class          |                               Description                               |   Type   |
-| ----------------------------------------------- | ------ | ---------------------- | ----------------------------------------------------------------------- | -------- |
-| `div`, `section`, `main`, `article`, `fieldset` | `root` | `.z-select`             | Root container                                                          | Block    |
-| Any containing `.z-select`                       | root   | `.z-select--label`      | Makes space for a floating label                                        | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--box`        | Renders a block input box good for search bars and headers              | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--borderless` | Renders an input box without borders, preserving browser's outline      | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--success`    | Renders a green border to indicate success                              | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--warning`    | Renders a yellow border to indicate warning                             | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--danger`     | Renders a reddish border to indicate danger                             | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--error`      | Renders a red border to indicate error                                  | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--prefix`     | Makes room in the inpux box for a prefix element                        | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--suffix`     | Makes room in the inpux box for a suffix element                        | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select--dark`       | Makes the input text white so it can be read easier on dark backgrounds | Modifier |
-| Any containing `.z-select`                       | root   | `.z-select__label`      | Renders a floating label                                                | Element  |
-| Any containing `.z-select`                       | root   | `.z-select__prefix`     | Renders a prefix element before the input text                          | Element  |
-| Any containing `.z-select`                       | root   | `.z-select__suffix`     | Renders a suffix element after the input text                           | Element  |
+|              Recommended HTML tags              | Parent |        Class         |                               Description                               |   Type   |
+| ----------------------------------------------- | ------ | -------------------- | ----------------------------------------------------------------------- | -------- |
+| `div`, `section`, `main`, `article`, `fieldset` | `root` | `.z-select`          | Root container                                                          | Block    |
+| Any containing `.z-select`                      | root   | `.z-select--label`   | Makes space for a floating label                                        | Modifier |
+| Any containing `.z-select`                      | root   | `.z-select--success` | Renders a green border to indicate success                              | Modifier |
+| Any containing `.z-select`                      | root   | `.z-select--warning` | Renders a yellow border to indicate warning                             | Modifier |
+| Any containing `.z-select`                      | root   | `.z-select--danger`  | Renders a reddish border to indicate danger                             | Modifier |
+| Any containing `.z-select`                      | root   | `.z-select--error`   | Renders a red border to indicate error                                  | Modifier |
+| Any containing `.z-select`                      | root   | `.z-select--dark`    | Makes the select text white so it can be read easier on dark backgrounds | Modifier |
+| Any containing `.z-select`                      | root   | `.z-select__label`   | Renders a floating label                                                | Element  |
 
 #### Full working example:
 
 ```html
 <div class="z-select">
-  <input type="text" placeholder="Type something">
+  <select>
+    <option>A</option>
+    <option>B</option>
+    <option>C</option>
+  </select>
 </div>
 ```
 
@@ -102,31 +100,28 @@ Render the HTML by using the SFC and passing props.
 
 ### Supported Props
 
-|  Prop name   |        Expected Type        |                                     Description                                      |
-| ------------ | --------------------------- | ------------------------------------------------------------------------------------ |
-| `label`      | `string` or `TextNode`      | The floating label to render                                                         |
-| `borderless` | `boolean`                   | Pass true to render a borderless input box                                           |
-| `box`        | `boolean`                   | Pass true to render an input box good for search bars and headers                    |
-| `prefix`     | `HTMLElement` or `TextNode` | The prefix to render before the input text                                           |
-| `suffix`     | `HTMLElement` or `TextNode` | The suffix to render after the input text                                            |
-| `color`      | `string`                    | A custom border color that you might pass to override the defaults                   |
-| `success`    | `boolean`                   | Pass true to indicate success and render a green border                              |
-| `warning`    | `boolean`                   | Pass true to indicate warning and render a yellow border                             |
-| `danger`     | `boolean`                   | Pass true to indicate danger and render a reddish border                             |
-| `error`      | `boolean`                   | Pass true to indicate error and render a red border                                  |
-| `dark`       | `boolean`                   | Pass true to indicate the input is in a dark background and input text will be white |
+|    Prop name    |     Expected Type      |                                     Description                                      |
+| --------------- | ---------------------- | ------------------------------------------------------------------------------------ |
+| `label`         | `string` or `TextNode` | The floating label to render                                                         |
+| `selectedIndex` | `number`               | The index of the selected option (optional)                                          |
+| `color`         | `string`               | A custom border color that you might pass to override the defaults                   |
+| `success`       | `boolean`              | Pass true to indicate success and render a green border                              |
+| `warning`       | `boolean`              | Pass true to indicate warning and render a yellow border                             |
+| `danger`        | `boolean`              | Pass true to indicate danger and render a reddish border                             |
+| `error`         | `boolean`              | Pass true to indicate error and render a red border                                  |
+| `dark`          | `boolean`              | Pass true to indicate the input is in a dark background and input text will be white |
 
-**Note that you can pass any attribute compatible with `input` that it will be automatically passed through.**
+**Note that you can pass any attribute compatible with `select` that it will be automatically passed through.**
 
 #### Full example (JSX):
 
 ```jsx
-<ZInput placeholder="Type something" />
+<ZSelect placeholder="Choose one" options={['A', 'B', 'C']} />
 ```
 
 ## <a name="theming"></a> Theming
 
-Since `1.3.0` you can theme `z-select` using CSS Variables!
+You can theme `z-select` using CSS Variables!
 
 The list of variables available is below:
 
