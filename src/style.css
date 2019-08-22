@@ -31,7 +31,7 @@
   right: 1rem;
   width: 1rem;
   height: 1rem;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjEwIiB2aWV3Qm94PSIwIDAgMTggMTAiIHdpZHRoPSIxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJtMCAwIDggOCA4LTgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiLz48L3N2Zz4=');
+  background-image: url('svg/arrow.svg');
   background-size: 100% 100%;
   background-position: center center;
 }

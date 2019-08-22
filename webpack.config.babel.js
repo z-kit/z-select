@@ -29,6 +29,10 @@ export default {
         exclude: /node_modules/,
         use: [MiniCssExtractPlugin.loader, 'css-loader?sourceMap', 'postcss-loader'],
       },
+      {
+        test: /\.svg$/,
+        use: ['url-loader'],
+      },
     ],
   },
   resolve: {
