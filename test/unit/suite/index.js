@@ -36,9 +36,9 @@ test('Options', (t) => {
   const expected = shallow(
     <div className="z-select">
       <select>
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
       </select>
     </div>
   ).html();
@@ -51,9 +51,9 @@ test('Pre-select value', (t) => {
   const expected = shallow(
     <div className="z-select">
       <select>
-        <option>A</option>
-        <option selected>B</option>
-        <option>C</option>
+        <option value="A">A</option>
+        <option value="B" selected>B</option>
+        <option value="C">C</option>
       </select>
     </div>
   ).html();
@@ -67,9 +67,9 @@ test('Placeholder', (t) => {
     <div className="z-select">
       <select>
         <option selected disabled hidden>Choose one</option>
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
       </select>
     </div>
   ).html();

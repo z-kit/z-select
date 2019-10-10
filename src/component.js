@@ -45,7 +45,7 @@ export function ZSelect(e) {
     }, placeholder)]] : [];
     const children = startOptions.concat(options.map((text, i) => {
       const selected = selectedIndex === i;
-      return e('option', { key: `${keyPrefix}-option-${i}`, selected }, text);
+      return e('option', { key: `${keyPrefix}-option-${i}`, value: text, selected }, text);
     }));
     const eSelect = e('select', props, children);
     const labelProps = { className: classnames.label };
